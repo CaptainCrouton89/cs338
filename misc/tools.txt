@@ -1,0 +1,11 @@
+Silas Rhyneer
+
+* 
+* `nslookup [domain name]` can be used to find a domain's IP address
+* Similarly, `nslookup [ip address]` can be used to find the corresponding domain name
+* 
+* using `lsof -i :[port number]` allows you to get processes listening to that port
+* 
+* using `curl -o [location on local disk] <url>` you can save a webpage
+* using `curl -v <url>` will show you the entire request, including the headers at the top
+* 

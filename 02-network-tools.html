@@ -1,0 +1,96 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
+    <title>CS 338 Assignment</title>
+    <link rel="stylesheet" href="/faculty/jondich/css/bootstrap.min.css">
+    <link rel="stylesheet" href="/faculty/jondich/css/course-bootstrap.css">
+</head>
+
+<body>
+    <nav class="navbar navbar-expand-md navbar-dark bg-dark fixed-top mb-4">
+      <div class="container-fluid">
+        <a class="navbar-brand" href="../index.html">CS 338 Spring 2022</a>
+      </div>
+    </nav>
+
+    <main class="container">
+      <div class="pb-5">
+        <h1>A network tools scavenger hunt</h1>
+		<p>File: misc/tools.txt</p>
+
+        <p><em>You may work with other people on this assignment, but write up and submit your own solutions.</em></p>
+
+        <h2>Goals</h2>
+        <ul>
+            <li>Get comfortable messing around on the Unix command line</li>
+            <li>Use some networking vocabulary: host, IP address, port,...</li>
+            <li>Learn some basics about the wide range of available networking commands</li>
+        </ul>
+
+        <h2>Rubric</h2>
+        <div class="code">1 - author name at the top of misc/tools.txt
+1 * 9 - the questions
+2 - citations</div>
+
+        <h2>Your job</h2>
+        <p>This is a short-answer assignment, so keep it brief&mdash;just a list of commands should be sufficient
+		for most of the questions.</p>
+
+        <p>For each of the following, provide at least one Unix command that
+        answers the question. Make sure these commands work in either the macOS Terminal,
+		the WSL terminal on Windows, or the terminal on our Kali virtual machine.
+		I'm not interested (today) in answers that involve GUI programs, so restrict your answers to
+		command-line commands.</p>
+
+		<p>You'll need to have some familiarity with some beginning concepts
+		related to IP (addresses), TCP (ports), and HTTP (headers). So you should watch
+		my video <a href="https://carleton.hosted.panopto.com/Panopto/Pages/Viewer.aspx?id=c7e0aa36-5891-41f4-bb8f-ac1c00fb2170">A brief introduction to HTTP</a> before jumping into those questions. (I know that
+        some of you already know this stuff, but the video might be useful just to learn how
+        I think about this material. Of course, those of you who have watched this video
+        before shouldn't feel obligated to do it again.)</p>
+
+        <p>Go ahead and use whatever internet resources you find, but <strong>cite your sources</strong>
+        for each problem. For this assignment, an URL is sufficient citation.
+        Ultimately, the answers are in each command's documentation, no matter how you found the
+        command in the first place, but (1) I'd love to have links to resources you found useful,
+        and (2) I want you to get into the habit of citing your sources for this class.</p>
+
+		<h2>How to hand it in</h2>
+		<p>In your GitHub repository for this course, put your answers in a text file
+        named <em>tools.txt</em> in the <em>misc</em> directory you created during the
+        <a href="00-setup.html">setup assignment</a>.
+		I really do want this to be a text file (not PDF, not .docx, not .rtf, etc.).
+		When you're ready, git add/commit/push to put your answers into the GitHub copy of your repository.</p>
+
+		<h2>The questions</h2>
+        <ol>
+            <li>What's your computer's IP address for its current Internet connection?
+                (0-point bonus: how can you tell the difference between your Ethernet IP and your
+                wireless IP if you have both connections active?)</li>
+            <li>How can you determine the IP address associated with a given host name?</li>
+            <li>How can you determine the host name(s) associated with a given IP address?</li>
+            <li>How can you copy a file from one computer to another? Or more to the point, if you
+                create a file on the Kali virtual machine and you want to put it someplace where you
+                can save it, like your your account on mantis.mathcs.carleton.edu, how do you
+                go about it from the Kali command-line interface?</li>
+            <li>How can you tell whether there's a process listening on a given port (e.g. port 80
+                or port 22) on a given host?</li>
+            <li>How can you tell which ports have processes listening on them on a given host?</li>
+            <li>How can you retrieve and save a given web page (say https://google.com/ or https://carleton.edu/)
+                in a file on your system?</li>
+            <li>How can you view the HTTP headers sent back from a specified web server when
+                you request one of its pages?</li>
+            <li>How can you view the HTTP headers that <em>your</em> computer sends <em>to</em> the web server when you
+                do the tasks in the previous two questions?</li>
+        </ol>
+
+        <p>Some commands that you might find interesting: nc (also known as netcat), nmap, curl, wget.
+            There are other relevant commands, of course, so use your internet-searching powers.</p>
+
+        <h2>Have fun!</h2>
+      </div>
+    </main>
+</body>
+</html>
