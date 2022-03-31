@@ -1,11 +1,13 @@
 Silas Rhyneer
 
-* `ipconfig getifaddr en0` returns the ip address for my wifi connection. en1 would return a wireless connection.
-* `nslookup [domain name]` can be used to find a domain's IP address
+NOTE: I didn't read the "cite sources" untile after I finished, so not all of them are present. Anything that is undocumented probably came from StackOverflow.
+
+* `ipconfig getifaddr en0` returns the ip address for my wifi connection. en1 would return a wireless connection. (StackOverflow)
+* `nslookup [domain name]` can be used to find a domain's IP address (no idea where 2 or 3 came from)
 * Similarly, `nslookup [ip address]` can be used to find the corresponding domain name
-* scp [file name] [username]@[ip address]:[directory path] will copy a file to another computer over the network.
-* using `lsof -i :[port number]` allows you to get processes listening to that port
-* `lsof -i -P -n | grep LISTEN` gives you all of the ports that are open on the device
-* using `curl -o [location on local disk] [url]` you can save a webpage
-* using `curl -v [url]` will show you the entire request, including the response headers beginning with `<`
-* using `curl -v [url]` will show you the entire request, including the request headers beginning with `>`
+* scp [file name] [username]@[ip address]:[directory path] will copy a file to another computer over the network. (https://linuxize.com/post/how-to-use-scp-command-to-securely-transfer-files/)
+* using `lsof -i :[port number]` allows you to get processes listening to that port (StackOverflow I think)
+* `lsof -i -P -n | grep LISTEN` gives you all of the ports that are open on the device (Definitely StackOverflow)
+* using `curl -o [location on local disk] [url]` you can save a webpage (Documentaion on curl from `curl -h`)
+* using `curl -v [url]` will show you the entire request, including the response headers beginning with `<` (memory from class)
+* using `curl -v [url]` will show you the entire request, including the request headers beginning with `>` (StackOverflow)
