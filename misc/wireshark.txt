@@ -1,0 +1,58 @@
+Silas Rhyneer
+
+===== DAYTIME =====
+1. 
+1	0.000000000	192.168.172.128	129.6.15.28	TCP	74	57474 → 13 [SYN] Seq=0 Win=64240 Len=0 MSS=1460 SACK_PERM=1 TSval=1772189361 TSecr=0 WS=128
+In order, we have the frame (or packet) number, the time at which the packet was sent or received, the IP address source of the packet (our own computer), the destination IP address (the DAYTIME server), the protocol (TCP), the length in bytes of the packet, some other stuff, and then [SYN], which is the "synchronization packet".
+
+2	0.043849270	129.6.15.28	192.168.172.128	TCP	60	13 → 57474 [SYN, ACK] Seq=0 Ack=1 Win=64240 Len=0 MSS=1460
+Each column is the same as before, however, note that the source and destination have switched, since this packet is coming from the server. Also note that it is not just a SYN, but also ACK, which means that it is acknowledging the client's request to talk, and also requesting that the client talks back as well.
+
+3	0.043909331	192.168.172.128	129.6.15.28	TCP	54	57474 → 13 [ACK] Seq=1 Ack=1 Win=64240 Len=0
+Once again, the IP addresses have switched, since this is the client's acknoweldgement response to the server. They can now begin to message back and forth.
+
+4	0.080265237	129.6.15.28	192.168.172.128	DAYTIME	105	DAYTIME Response
+The server doesn't wait for any request, it just immediately sends a message contianing all the headers from before, as well as the response—the date and time.
+
+5	0.080470638	192.168.172.128	129.6.15.28	TCP	54	57474 → 13 [FIN, ACK] Seq=1 Ack=53 Win=64188 Len=0
+The client tells the sever that it's finished, and is ready to stop communicating back and forth, which is why it sends FIN, as well as ACK to acknoweldge the server's response with the time.
+
+6	0.080761153	129.6.15.28	192.168.172.128	TCP	60	13 → 57474 [ACK] Seq=53 Ack=2 Win=64239 Len=0
+The server acknowledges the request to stop talking
+
+2. 
+The client uses port 57474. It needs a port so that the server knows which program to send the information to. 
+
+3.
+4	0.080265237	129.6.15.28	192.168.172.128	DAYTIME	105	DAYTIME Response
+This is the server's response
+
+4. 
+The time goes beyond just seconds, and also includes the timezone. 
+
+5.
+SYN means synchronization request
+
+6.
+ACK means acknoweldgement
+
+7.
+FIN means finished
+
+8.
+The client did. We can tell by looking at the source and destination IP addresses
+
+===== HTTP =====
+1.
+50 TCP packets were sent
+
+2. 
+I cannot tell where it comes from. Running nslookup on 123.89.79.45 returns li1188-123.members.linode.com, which seems very unrelated. 
+
+3. 
+Same as above—I can't find anything more about it. 
+
+
+======== QUESTIONS ============
+How do you easily copy and paste inside Kali??
+Why are there so many TCP packets sent back and forth?

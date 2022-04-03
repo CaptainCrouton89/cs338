@@ -1,0 +1,6 @@
+client: device making a service request
+server: device fulfilling the requested service
+packet: a bundle of information passed over the network with some metadata
+IP Address: The address across the network to which to send the packet
+port: the specific incoming "mailbox" the packet should be received at
+protocol: A set of rules for request formatting that server and client "agree" to in order to understand each other.
