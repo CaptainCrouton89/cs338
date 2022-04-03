@@ -56,3 +56,4 @@ Same as above—I can't find anything more about it.
 ======== QUESTIONS ============
 How do you easily copy and paste inside Kali??
 Why are there so many TCP packets sent back and forth?
+How should we search for specific things inside the already filtered output?
