@@ -1,0 +1,24 @@
+Silas Rhyneer
+
+Note—all messages may be encoded using base64 if necessary
+
+1. Alice and Bob use Diffie-Hellman to agree on a shared key K. Then, using AES, they send their messages back and forth. This works because although DH is vulnerable to Mal, a listener cannot discern the contents of the message. 
+
+
+2. Alice and Bob use RSA to encrypt and decrpyt. This begins with Alice encrypting a key using bob's public key, 
+
+M = E(P_B, K)
+
+Then, boby decrypts the key
+
+K = D(S_B, M)
+
+Using this shared key, Alice sends Bob her longer messages using AES
+
+M = AES_E(K, C)
+
+Bob decrypts this longer messages using AES
+
+C = AES_D(K, M)
+
+2. 
