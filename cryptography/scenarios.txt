@@ -1,15 +1,17 @@
-Silas Rhyneer
+Silas Rhyneer, consulted with Charlie Roslansky
 
 Note—all messages may be encoded using base64 if necessary
 
-1. Alice and Bob use Diffie-Hellman to agree on a shared key K. Then, using AES, they send their messages back and forth. This works because although DH is vulnerable to Mal, a listener cannot discern the contents of the message. 
+1. 
+Alice and Bob use Diffie-Hellman to agree on a shared key K. Then, using AES, they send their messages back and forth. This works because although DH is vulnerable to Mal, a listener cannot discern the contents of the message. Since they have the same symmetric key, they can communicate quickly and securely. 
 
 
-2. Alice and Bob use RSA to encrypt and decrpyt. This begins with Alice encrypting a key using bob's public key, 
+2.
+Alice and Bob use RSA to encrypt and decrpyt. This begins with Alice encrypting a key using bob's public key, 
 
 M = E(P_B, K)
 
-Then, boby decrypts the key
+Then, Bob decrypts the key
 
 K = D(S_B, M)
 
@@ -21,4 +23,26 @@ Bob decrypts this longer messages using AES
 
 C = AES_D(K, M)
 
-2. 
+3. 
+Like in scenario 2, Alice can use RSA to send a key. However, she can also encrypt the key using first her secret key, and then using Bob's public key (M = E(P_B, E(S_A, C))). Then, bob can decrypt it in the opposite order to get the original key (C = E(S_B, E(P_A, M))). 
+
+4. 
+- Alice could argue that there was a third party that pretended to be Alice, and fooled Bob. For example, if Bob visited a website that looked like it was Alice's website. This would require that this imposter could duplicate the signature of Alice. They would not need to steal Alice's public key, since that is already public.
+- Alice could argue that a PITM modified the contract before sending the Bob. As the judge, I'd find this somewhat plausible, depending on where the message had been routed through. I would want 
+- Bob could be lying, and making up the fact that Alice sent any contract at all. 
+
+5. 
+The signing process begins with the TBS, which is composed by the following:
+
+- A domain
+- Bob's public key (that he wants linked to the domain)
+- Some other data, like expiration dates
+
+These are hashed (H(TBS)). Then, these are encyrpted using the CA's private key (E(S_CA, H(TBS))). This is then appended to the end of Bob's certificate before being returned to Bob. It has now been signed by the CA. It now looks like:
+Cert_B_Signed = TBS || (E(S_CA, H(TBS)))
+
+6. 
+No. With Diffie-Hellman, Alice and Bob can come up with a shared symmetric key. Then, Alice can send Bob a random number, and Bob can send E(S_B, H(K || R)) to Alice. Then Alice should verify that the random number is the same. Mal cannot intervene, since although she can have a symmetric key for both Alice and Bob, it will not be the same symmetric key when Mal has to return the message. Although she has both Ks and R for both agents, she can't re-encrypt H(K || R) using Bob's secret key before sending to alice.
+
+7.
+If Mal can fool the CA, then Mal can convince Alice that Mal is Bob, since Mal will appear as the correct owner of the Bob's domain. Mal could also create their own certificate authority to sign their own domain. Mal could also set up something directly on Alice's machine that tricks it into not actually verifying the certifacte. For example, when Alice's machine requests the certificate, maybe the request doesn't go to the right place, and a dummy certifacte gets returned instead. Alternatively, if any of the browser code that requests certificates is hampered with, this could also make it so no certicate is requested at all. 
