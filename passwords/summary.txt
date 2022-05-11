@@ -34,9 +34,9 @@ Analysis:
 so you could just look up the password in a table indexed by the hash. How much
 memory would be required for each phase?
     - Assuming each character in a string only requires 1 byte, and our hashes are 64 characters long
-        - Passwords1: num_words * mem(hash_string + username) = ~20 megabytes
-        - Passwords2: num_users * num_words^2 * mem(hash_string + username) = ~4 terabytes
-        - Passwords3: num_users * num_words * mem(hash_string + username) = ~50 gigabytes
+        - Passwords1: num_words * mem(hash_string + password) = ~20 megabytes
+        - Passwords2: num_users * num_words^2 * mem(hash_string + password) = ~4 terabytes
+        - Passwords3: num_users * num_words * mem(hash_string + password) = ~50 gigabytes
 - Give 3-4 reasons we should store password hashes and not the passwords themselves.
 Think in terms of threats, who the attackers might be, etc.
     - Someone that breaks into the server wouldn't immediately have access to all the passwords.

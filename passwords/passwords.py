@@ -55,7 +55,7 @@ def calculate_cracked2():
         for word2 in words:
             password = hash_word(word + word2)
             hash_count += 1
-            if password in password_to_user.keys():
+            if password in password_to_user:
                 username_to_password[password_to_user[password]] = word + word2
                 print(f"{password_to_user[password]}: {word + word2} hashes: {hash_count} time: {time.time() - start}")
 
