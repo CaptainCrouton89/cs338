@@ -1,0 +1,11 @@
+1.c. Public Key Encryption
+2.c. the message cannot be longer the modulo in the key
+3.c. Alice produces A = g^a mod p where she chooses some secret value 'a' and tells Bob the value of A. 'a' remains a secret to Alice. A is publicly known to evesdroppers and Bob. Bob beforms the same sequence of actions, and has his own secret value 'b' (formulated in the same manner as 'a'). The key that Alice and Bob produce is known only by them, and not evesdroppers. 
+4.b. IP is a protocol defining the standards for addressing messages to and from devices across a network. 
+5.a. Transmission Control Protocol
+6.a. Public Key Infrastructure
+6.b. Transport Layer Security
+7.c. Bob first generates his public/private key pair. He must also have a domain name. Then, he registers this public key with a certificate authority. This certificate authority will then "verify" that Bob actually controls this domain. One way they can do this is by asking him to make a specific change on the website, and see if it matches with the one they requested. Then, the certificate authority will sign the public key (as described in 7.b.). This is then sent back to Bob, but may also be distributed to browsers to be included in their collections of web certificates.
+7.d. To verify Bob's certificate, Alice will use the CA's public key to decrypt the CA's signature on Bob's certificate. Alice will then compare this to the hash of Bob's TBS (Domain, Public key, Other data like expiration dates). If they match, then Alice knows that Bob actually does control the domain.
+10.a. AES, RSA, DES, HMAC-SHA256
+10.b. AES, RSA, DES, BASE64
